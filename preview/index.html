@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Expound — Anthropic Partner Network Onboarding Agent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --cream: #f4f1ea;
+        --ink: #1a1a1a;
+        --muted: #6b6b6b;
+        --accent: #c85a3a;
+        --accent-soft: #e8c9bd;
+        --line: #e5dfd2;
+      }
+      body {
+        background: var(--cream);
+        color: var(--ink);
+        font-family:
+          "Fraunces", "Georgia", "Songti SC", "STSong", ui-serif, serif;
+      }
+      .sans {
+        font-family:
+          "Inter", -apple-system, "PingFang SC", "Microsoft YaHei",
+          ui-sans-serif, system-ui, sans-serif;
+      }
+      .accent {
+        color: var(--accent);
+      }
+      .bg-accent {
+        background: var(--accent);
+      }
+      .bg-accent-soft {
+        background: var(--accent-soft);
+      }
+      .border-line {
+        border-color: var(--line);
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .italic-accent {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .card {
+        background: #fffdf8;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.15rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+      .chip-done {
+        background: #e5efe0;
+        color: #2f5a1f;
+      }
+      .chip-run {
+        background: #fbe7b8;
+        color: #6a4600;
+      }
+      .chip-todo {
+        background: #ece6d6;
+        color: #5b5646;
+      }
+      .chip-hitl {
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        display: inline-block;
+      }
+      .grid-journey {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 16px;
+      }
+      @media (max-width: 900px) {
+        .grid-journey {
+          grid-template-columns: 1fr;
+        }
+      }
+      .step-num {
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: "tnum";
+      }
+      .log-line {
+        font-family:
+          "JetBrains Mono", "SF Mono", Menlo, Consolas, ui-monospace, monospace;
+        font-size: 12.5px;
+      }
+      .diag {
+        font-family:
+          "JetBrains Mono", "SF Mono", Menlo, Consolas, ui-monospace, monospace;
+        font-size: 12px;
+        line-height: 1.6;
+        color: #3a3a3a;
+        white-space: pre;
+      }
+      .progress-bar {
+        height: 6px;
+        border-radius: 999px;
+        background: #ece6d6;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        background: var(--accent);
+      }
+      .underline-serif {
+        border-bottom: 1px solid var(--accent);
+        padding-bottom: 2px;
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- Header -->
+    <header class="max-w-6xl mx-auto px-6 pt-14 pb-6">
+      <div class="flex items-center justify-between">
+        <div class="sans text-sm muted tracking-widest uppercase">
+          Expound · Preview
+        </div>
+        <div class="sans text-sm muted">v0.1 · 2026-Q2</div>
+      </div>
+      <h1
+        class="mt-8 text-5xl md:text-6xl leading-[1.05] tracking-tight font-medium"
+      >
+        让企业加入 <span class="italic-accent">Anthropic Partner</span>
+        <br />的那段路,不必再靠人肉推动。
+      </h1>
+      <p class="mt-6 max-w-2xl sans text-lg muted leading-relaxed">
+        Expound 是一个多 Agent 编排的 onboarding 服务。它把从
+        <span class="underline-serif">资格评估</span> 到
+        <span class="underline-serif">认证</span> 到
+        <span class="underline-serif">联合上市</span>
+        这条原本需要跨角色、跨部门、跨 6–8
+        周的流程,压缩为由 Agent 主导、人在环批准的流水线。
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2 sans text-sm">
+        <span class="chip chip-done">多 Agent 编排</span>
+        <span class="chip chip-done">Claude Agent SDK</span>
+        <span class="chip chip-done">Prompt Caching</span>
+        <span class="chip chip-done">Human-in-the-loop</span>
+        <span class="chip chip-done">Slack + Dashboard</span>
+      </div>
+    </header>
+
+    <!-- Journey -->
+    <section class="max-w-6xl mx-auto px-6 pt-6 pb-10">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-3xl md:text-4xl tracking-tight">培训与认证旅程</h2>
+        <div class="sans text-sm muted">5 个阶段 · 参考时长 8 周</div>
+      </div>
+
+      <div class="grid-journey">
+        <!-- Stage 1 -->
+        <div class="card p-5">
+          <div class="flex items-baseline justify-between">
+            <div class="step-num accent text-lg">01</div>
+            <span class="chip chip-done">已完成</span>
+          </div>
+          <h3 class="mt-2 text-xl">Discover</h3>
+          <p class="sans text-xs muted mt-1">发现 & 申请 · ~1 周</p>
+          <ul class="sans text-sm mt-4 space-y-1.5 muted">
+            <li>· 企业画像扫描</li>
+            <li>· Tier 差距报告</li>
+            <li>· Business Plan 草拟</li>
+            <li>· MSA 走签</li>
+          </ul>
+          <div class="mt-4 sans text-xs muted">主责 Agent</div>
+          <div class="sans text-xs mt-1">Eligibility Scout · Application Packager</div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="card p-5">
+          <div class="flex items-baseline justify-between">
+            <div class="step-num accent text-lg">02</div>
+            <span class="chip chip-run">进行中</span>
+          </div>
+          <h3 class="mt-2 text-xl">Enable</h3>
+          <p class="sans text-xs muted mt-1">启用 & 培训 · 2–3 周</p>
+          <ul class="sans text-sm mt-4 space-y-1.5 muted">
+            <li>· 角色 → 学习路径</li>
+            <li>· 每周日历 + 提醒</li>
+            <li>· 直播 / Lab / Office Hour</li>
+            <li>· 完成率看板</li>
+          </ul>
+          <div class="mt-4 sans text-xs muted">进度</div>
+          <div class="progress-bar mt-1"><div class="progress-fill" style="width:62%"></div></div>
+          <div class="sans text-xs muted mt-1">62% · 8 / 13 人完成核心模块</div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="card p-5">
+          <div class="flex items-baseline justify-between">
+            <div class="step-num accent text-lg">03</div>
+            <span class="chip chip-todo">待开始</span>
+          </div>
+          <h3 class="mt-2 text-xl">Certify</h3>
+          <p class="sans text-xs muted mt-1">认证 · 1–2 周</p>
+          <ul class="sans text-sm mt-4 space-y-1.5 muted">
+            <li>· 诊断测验 + 薄弱点专题</li>
+            <li>· 3 轮模考</li>
+            <li>· 准备度评分 ≥ 85</li>
+            <li>· 失败后补救计划</li>
+          </ul>
+          <div class="mt-4 sans text-xs muted">目标认证</div>
+          <div class="sans text-xs mt-1">
+            Business Associate × 3<br />Solutions Architect × 2
+          </div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="card p-5">
+          <div class="flex items-baseline justify-between">
+            <div class="step-num accent text-lg">04</div>
+            <span class="chip chip-todo">待开始</span>
+          </div>
+          <h3 class="mt-2 text-xl">Launch</h3>
+          <p class="sans text-xs muted mt-1">上市 & 联合 GTM · 2 周</p>
+          <ul class="sans text-sm mt-4 space-y-1.5 muted">
+            <li>· Demo / POC 脚手架</li>
+            <li>· 联合白皮书</li>
+            <li>· Partner Directory listing</li>
+            <li>· Co-marketing kit</li>
+          </ul>
+          <div class="mt-4 sans text-xs muted">主责 Agent</div>
+          <div class="sans text-xs mt-1">Enablement / GTM</div>
+        </div>
+
+        <!-- Stage 5 -->
+        <div class="card p-5">
+          <div class="flex items-baseline justify-between">
+            <div class="step-num accent text-lg">05</div>
+            <span class="chip chip-todo">持续</span>
+          </div>
+          <h3 class="mt-2 text-xl">Grow</h3>
+          <p class="sans text-xs muted mt-1">成长 & 续期 · 持续</p>
+          <ul class="sans text-sm mt-4 space-y-1.5 muted">
+            <li>· 月度 QBR 数据包</li>
+            <li>· Tier 升级路径</li>
+            <li>· 年度再认证(Delta 路径)</li>
+            <li>· 过期提醒 T-45 / T-15 / T-0</li>
+          </ul>
+          <div class="mt-4 sans text-xs muted">主责 Agent</div>
+          <div class="sans text-xs mt-1">Compliance & Renewal</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="max-w-6xl mx-auto px-6 py-10">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-3xl md:text-4xl tracking-tight">多 Agent 架构</h2>
+        <div class="sans text-sm muted">
+          Opus 4.7 编排 · Sonnet 4.6 子 Agent · Haiku 4.5 小任务
+        </div>
+      </div>
+
+      <div class="card p-6">
+        <pre class="diag">
+                      ┌──────────────────────────────┐
+     Slack / Web  ──▶ │   Orchestrator (Opus 4.7)    │ ◀── HITL 审批
+                      └──────────────┬───────────────┘
+                                     │  delegate · aggregate
+        ┌──────────────┬──────────────┼──────────────┬──────────────┐
+        ▼              ▼              ▼              ▼              ▼
+  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+  │Eligibility│   │Application│   │ Training │   │ Cert.    │   │Enablement│
+  │  Scout   │   │ Packager │   │  Coach   │   │Prep      │   │  / GTM   │
+  └────┬─────┘   └────┬─────┘   └────┬─────┘   └────┬─────┘   └────┬─────┘
+       │              │              │              │              │
+       ▼              ▼              ▼              ▼              ▼
+  [Web / RAG]    [Docs / DocuSign] [Academy] [题库 RAG / 评分]  [Agent SDK
+   Partner        CRM · Email      Calendar                     脚手架 · Notion]
+   Handbook                        Slack
+        </pre>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 mt-6">
+        <div class="card p-5">
+          <div class="sans text-xs muted uppercase tracking-wider">能力点</div>
+          <div class="text-lg mt-1">长程状态管理</div>
+          <p class="sans text-sm muted mt-2 leading-relaxed">
+            每个 Partner Org 是一个跨周的长任务对象,用结构化存储 + Claude
+            Memory 工具保存 milestones 与 artifacts,避免把所有历史塞进上下文。
+          </p>
+        </div>
+        <div class="card p-5">
+          <div class="sans text-xs muted uppercase tracking-wider">能力点</div>
+          <div class="text-lg mt-1">Prompt Caching</div>
+          <p class="sans text-sm muted mt-2 leading-relaxed">
+            Partner Handbook / 认证大纲 / 合规条款稳定且体量大,放进
+            <code class="sans">cache_control</code> 后命中率可达 90%+,显著降低成本。
+          </p>
+        </div>
+        <div class="card p-5">
+          <div class="sans text-xs muted uppercase tracking-wider">能力点</div>
+          <div class="text-lg mt-1">人在环</div>
+          <p class="sans text-sm muted mt-2 leading-relaxed">
+            提交申请、签署协议、对外通讯强制经 Champion 批准。卡片式追问,不设默认放行。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agent samples -->
+    <section class="max-w-6xl mx-auto px-6 py-10">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-3xl md:text-4xl tracking-tight">Agent 工作示例</h2>
+        <div class="sans text-sm muted">以下内容为模拟输出,非真实 Partner 数据</div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <!-- Eligibility sample -->
+        <div class="card p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="sans text-xs muted uppercase tracking-wider">
+                Eligibility Scout
+              </div>
+              <div class="text-xl mt-1">差距报告 · ACME Consulting</div>
+            </div>
+            <span class="chip chip-done">已产出</span>
+          </div>
+          <div class="mt-4 text-sm sans leading-relaxed">
+            <div>
+              <strong>当前满足:</strong>
+              <span class="muted">Registered</span>
+            </div>
+            <div class="mt-1">
+              <strong>目标建议:</strong> <span>Select</span>
+            </div>
+            <div class="mt-3 muted">距离目标还差:</div>
+            <ul class="mt-1 space-y-1">
+              <li>· Solutions Architect 认证 <strong>× 2</strong>(当前 0)</li>
+              <li>· 已成交 Claude 落地项目 <strong>× 2</strong>(当前 1,POC 进行中)</li>
+              <li>· 可公开引用的客户参考 <strong>× 1</strong></li>
+            </ul>
+            <div class="mt-3 muted">预计达到 Select tier:</div>
+            <div><strong>6 周</strong>(按本报告建议的学习 + 认证计划)</div>
+          </div>
+        </div>
+
+        <!-- Training path sample -->
+        <div class="card p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="sans text-xs muted uppercase tracking-wider">
+                Training Coach
+              </div>
+              <div class="text-xl mt-1">本周学习计划 · 李雯(Solutions Architect 候选)</div>
+            </div>
+            <span class="chip chip-run">进行中</span>
+          </div>
+          <div class="mt-4 text-sm sans space-y-2">
+            <div class="flex justify-between">
+              <span>周一 · Messages API 基础(视频 45m)</span>
+              <span class="chip chip-done">完成</span>
+            </div>
+            <div class="flex justify-between">
+              <span>周二 · Tool Use 深潜(视频 60m + 练习)</span>
+              <span class="chip chip-done">完成</span>
+            </div>
+            <div class="flex justify-between">
+              <span>周三 · Prompt Caching 与成本优化(Lab)</span>
+              <span class="chip chip-run">进行中</span>
+            </div>
+            <div class="flex justify-between">
+              <span>周四 · Agent SDK 入门(视频 + Lab)</span>
+              <span class="chip chip-todo">未开始</span>
+            </div>
+            <div class="flex justify-between">
+              <span>周五 · Office Hour(Anthropic SE 答疑)</span>
+              <span class="chip chip-todo">已预约</span>
+            </div>
+          </div>
+          <div class="mt-4 muted text-xs sans">
+            完成率 <strong class="accent">64%</strong> · 本周目标 80% · 若周五 17:00 前未达 80% 将自动 escalation 至 Manager
+          </div>
+        </div>
+
+        <!-- Cert prep sample -->
+        <div class="card p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="sans text-xs muted uppercase tracking-wider">
+                Certification Proctor-Prep
+              </div>
+              <div class="text-xl mt-1">模考 · Solutions Architect 第 2 轮</div>
+            </div>
+            <span class="chip chip-run">进行中</span>
+          </div>
+          <div class="mt-4 sans text-sm space-y-2">
+            <div class="flex justify-between">
+              <span>覆盖率</span><strong>87%</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>准确率</span><strong>79%</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>薄弱领域</span><span>Prompt Caching TTL · Tool Use 错误处理</span>
+            </div>
+            <div class="flex justify-between">
+              <span>建议下一步</span>
+              <span class="italic-accent">专题补强 ~2 小时,然后第 3 轮模考</span>
+            </div>
+            <div class="mt-3 muted text-xs">
+              准备度评分 · <strong class="accent">72 / 100</strong>(达 85 推送
+              "可报考")
+            </div>
+          </div>
+        </div>
+
+        <!-- HITL card -->
+        <div class="card p-6 border" style="border-color: var(--accent);">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="sans text-xs uppercase tracking-wider accent">
+                HITL · 等待批准
+              </div>
+              <div class="text-xl mt-1">向 Anthropic 提交正式申请</div>
+            </div>
+            <span class="chip chip-hitl">需确认</span>
+          </div>
+          <div class="mt-4 sans text-sm leading-relaxed">
+            我已经准备好 <strong>ACME Consulting</strong> 的申请材料(Business Plan、公司资料、既有案例 1-pager)。
+            <br /><br />
+            <span class="muted">附件:</span>
+            <span>3 份 · 5.2 MB</span><br />
+            <span class="muted">目标 Tier:</span> <span>Select</span><br />
+            <span class="muted">预计处理时长:</span>
+            <span>3–5 工作日</span>
+          </div>
+          <div class="mt-5 flex gap-3">
+            <button class="sans text-sm px-4 py-2 rounded-md bg-accent text-white">
+              批准并提交
+            </button>
+            <button class="sans text-sm px-4 py-2 rounded-md border border-line">
+              查看材料
+            </button>
+            <button class="sans text-sm px-4 py-2 rounded-md muted">
+              延后
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard mock -->
+    <section class="max-w-6xl mx-auto px-6 py-10">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-3xl md:text-4xl tracking-tight">Partner Org 看板</h2>
+        <div class="sans text-sm muted">ACME Consulting · Week 3 of 8</div>
+      </div>
+      <div class="card p-6">
+        <div class="grid md:grid-cols-4 gap-6">
+          <div>
+            <div class="sans text-xs muted uppercase tracking-wider">
+              阶段
+            </div>
+            <div class="text-2xl mt-1">Enable</div>
+            <div class="sans text-xs muted mt-1">W3 · 第 10 天</div>
+          </div>
+          <div>
+            <div class="sans text-xs muted uppercase tracking-wider">
+              培训完成率
+            </div>
+            <div class="text-2xl mt-1">62%</div>
+            <div class="progress-bar mt-2">
+              <div class="progress-fill" style="width: 62%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="sans text-xs muted uppercase tracking-wider">
+              认证准备度
+            </div>
+            <div class="text-2xl mt-1">72 / 100</div>
+            <div class="sans text-xs muted mt-1">达到 85 可正式报考</div>
+          </div>
+          <div>
+            <div class="sans text-xs muted uppercase tracking-wider">
+              风险项
+            </div>
+            <div class="text-2xl mt-1 accent">2</div>
+            <div class="sans text-xs muted mt-1">
+              1 名学员逾期 · MSA 法务未签
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <div class="sans text-xs muted uppercase tracking-wider mb-3">
+            最近事件流
+          </div>
+          <div class="space-y-1.5">
+            <div class="log-line"><span class="muted">10:41</span>  ✓  Training Coach · 李雯 完成模块 "Tool Use 深潜"</div>
+            <div class="log-line"><span class="muted">10:12</span>  ⋯  Certification Prep · 王哲 开始第 2 轮模考</div>
+            <div class="log-line"><span class="muted">09:58</span>  !  Eligibility Scout · 检测到 Anthropic 官方更新:新增 "Agent Developer" 认证科目</div>
+            <div class="log-line"><span class="muted">09:30</span>  ⏳ HITL · 等待 Champion 批准 "向 Anthropic 提交申请"</div>
+            <div class="log-line"><span class="muted">09:05</span>  ✓  Orchestrator · 为 5 名新学员生成学习路径并加入日历</div>
+            <div class="log-line"><span class="muted">昨天 18:20</span>  ⚠  逾期:张蕾 未完成本周目标的 80%,已升级至 Manager</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto px-6 py-12 sans text-sm muted">
+      <div class="flex flex-wrap justify-between gap-4 border-t border-line pt-6">
+        <div>Expound · Anthropic Partner Onboarding Agent · Preview v0.1</div>
+        <div>本页为视觉预览,数据为模拟。正式 tier / 认证名称以 Anthropic 官方为准。</div>
+      </div>
+    </footer>
+  </body>
+</html>
