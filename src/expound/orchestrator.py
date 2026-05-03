@@ -18,9 +18,8 @@ import anthropic
 from anthropic import beta_tool
 
 from . import agents as sub
+from .client import get_model, get_provider, make_client, supports_anthropic_betas
 from .state import Learner, LearnerRole, PartnerOrg
-
-ORCHESTRATOR_MODEL = "claude-opus-4-7"
 
 SYSTEM = """\
 You are Expound's Orchestrator. You coordinate specialist sub-agents to drive \
@@ -110,11 +109,18 @@ def orchestrate(goal: str, client: anthropic.Anthropic | None = None) -> str:
 
     Returns the final text response the orchestrator produces for the operator.
     """
-    client = client or anthropic.Anthropic()
+    if not supports_anthropic_betas():
+        raise RuntimeError(
+            f"orchestrate() relies on Anthropic beta features (tool_runner, "
+            f"adaptive thinking, output_config) that are not supported on "
+            f"provider {get_provider()!r}. Run sub-agents directly, or set "
+            "EXPOUND_PROVIDER=anthropic for the full orchestrator demo."
+        )
+    client = client or make_client()
     tools = _make_tools(client)
 
     runner = client.beta.messages.tool_runner(
-        model=ORCHESTRATOR_MODEL,
+        model=get_model("orchestrator"),
         max_tokens=16000,
         thinking={"type": "adaptive"},
         output_config={"effort": "high"},

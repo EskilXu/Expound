@@ -11,6 +11,7 @@ from rich.panel import Panel
 from rich.rule import Rule
 
 from . import agents as sub
+from .client import get_provider, required_env_var
 from .orchestrator import orchestrate
 from .state import Learner, LearnerRole, PartnerOrg
 
@@ -37,12 +38,14 @@ def _demo_partner() -> PartnerOrg:
 
 
 def _require_api_key() -> None:
-    if not os.environ.get("ANTHROPIC_API_KEY"):
+    var = required_env_var()
+    if not os.environ.get(var):
+        provider = get_provider()
         console.print(
             Panel.fit(
-                "[red]ANTHROPIC_API_KEY is not set.[/red]\n\n"
-                "Export it before running the demo:\n"
-                "  [dim]export ANTHROPIC_API_KEY=sk-ant-...[/dim]",
+                f"[red]{var} is not set.[/red] (provider={provider})\n\n"
+                f"Export it before running the demo:\n"
+                f"  [dim]export {var}=...[/dim]",
                 border_style="red",
             )
         )

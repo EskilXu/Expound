@@ -76,6 +76,34 @@ expound demo
 2. Training Coach がサンプル受講者の学習パスを生成
 3. (申請送信前の) HITL 承認カードをシミュレーション
 
+## Provider の切り替え(Anthropic / DeepSeek)
+
+Expound は `EXPOUND_PROVIDER` 環境変数で 2 つの provider を切り替えます:
+
+| Provider | 既定モデル(orchestrator / sub-agent / fast) | 必須 env | Orchestrator 利用可? |
+|---|---|---|---|
+| `anthropic`(既定) | `claude-opus-4-7` / `claude-sonnet-4-6` / `claude-haiku-4-5` | `ANTHROPIC_API_KEY` | ✅ |
+| `deepseek` | `deepseek-reasoner` / `deepseek-chat` / `deepseek-chat` | `DEEPSEEK_API_KEY` | ❌ sub-agent のみ直接呼び出し可 |
+
+```bash
+# 既定: Anthropic
+export ANTHROPIC_API_KEY=sk-ant-...
+expound demo
+
+# DeepSeek へ切り替え(注: orchestrator が依存する Anthropic ベータ機能 ──
+# tool_runner / adaptive thinking ── は DeepSeek の Anthropic 互換 shim では
+# 未実装のため、その経路では明示的にエラーになります)
+export EXPOUND_PROVIDER=deepseek
+export DEEPSEEK_API_KEY=sk-...
+expound demo  # sub-agent 部分は動作;orchestrator 段階で明確なエラー
+```
+
+ロールごとにモデル名を上書きする場合:
+
+- `EXPOUND_MODEL_ORCHESTRATOR`
+- `EXPOUND_MODEL_SUB_AGENT`
+- `EXPOUND_MODEL_FAST`
+
 ## 設計原則
 
 - **HITL がデフォルト**: 対外的なコミュニケーション、署名、提出はすべて人間の確認を必要とし、自動承認は設けない。

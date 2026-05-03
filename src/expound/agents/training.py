@@ -8,10 +8,9 @@ from __future__ import annotations
 
 import anthropic
 
+from ..client import get_model, make_client, parse_message, thinking_kwargs
 from ..knowledge import handbook
 from ..state import Learner, LearningPath
-
-MODEL = "claude-sonnet-4-6"
 
 SYSTEM_ROLE = """\
 You are the Training Coach, a specialist sub-agent in the Expound onboarding \
@@ -34,7 +33,7 @@ def run_training_coach(
     learner: Learner,
     client: anthropic.Anthropic | None = None,
 ) -> LearningPath:
-    client = client or anthropic.Anthropic()
+    client = client or make_client()
 
     system = [
         {"type": "text", "text": SYSTEM_ROLE},
@@ -49,16 +48,12 @@ def run_training_coach(
         f"Generate a Week 1 LearningPath for:\n{learner.model_dump_json(indent=2)}"
     )
 
-    response = client.messages.parse(
-        model=MODEL,
+    return parse_message(
+        client,
+        output_format=LearningPath,
+        model=get_model("sub_agent"),
         max_tokens=4096,
-        thinking={"type": "adaptive"},
         system=system,
         messages=[{"role": "user", "content": user_content}],
-        output_format=LearningPath,
+        **thinking_kwargs(),
     )
-    if response.parsed_output is None:
-        raise RuntimeError(
-            f"Training Coach failed to parse output (stop_reason={response.stop_reason})"
-        )
-    return response.parsed_output

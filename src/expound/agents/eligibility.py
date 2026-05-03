@@ -10,10 +10,9 @@ from __future__ import annotations
 
 import anthropic
 
+from ..client import get_model, make_client, parse_message, thinking_kwargs
 from ..knowledge import handbook
 from ..state import EligibilityReport, PartnerOrg
-
-MODEL = "claude-sonnet-4-6"
 
 SYSTEM_ROLE = """\
 You are the Eligibility Scout, a specialist sub-agent in the Expound onboarding \
@@ -34,7 +33,7 @@ def run_eligibility_scout(
     partner: PartnerOrg,
     client: anthropic.Anthropic | None = None,
 ) -> EligibilityReport:
-    client = client or anthropic.Anthropic()
+    client = client or make_client()
 
     system = [
         {
@@ -53,16 +52,12 @@ def run_eligibility_scout(
         f"## Partner profile (JSON)\n{partner.model_dump_json(indent=2)}"
     )
 
-    response = client.messages.parse(
-        model=MODEL,
+    return parse_message(
+        client,
+        output_format=EligibilityReport,
+        model=get_model("sub_agent"),
         max_tokens=4096,
-        thinking={"type": "adaptive"},
         system=system,
         messages=[{"role": "user", "content": user_content}],
-        output_format=EligibilityReport,
+        **thinking_kwargs(),
     )
-    if response.parsed_output is None:
-        raise RuntimeError(
-            f"Eligibility Scout failed to parse output (stop_reason={response.stop_reason})"
-        )
-    return response.parsed_output

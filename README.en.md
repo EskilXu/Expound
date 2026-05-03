@@ -76,6 +76,34 @@ The demo uses a fictional company "ACME Consulting" as the Partner Org and trigg
 2. Training Coach generates a learning path for a sample learner
 3. A simulated HITL approval card (before submitting the application)
 
+## Provider switching (Anthropic / DeepSeek)
+
+Expound switches between two providers via the `EXPOUND_PROVIDER` env var:
+
+| Provider | Default models (orchestrator / sub-agent / fast) | Required env | Orchestrator available? |
+|---|---|---|---|
+| `anthropic` (default) | `claude-opus-4-7` / `claude-sonnet-4-6` / `claude-haiku-4-5` | `ANTHROPIC_API_KEY` | ✅ |
+| `deepseek` | `deepseek-reasoner` / `deepseek-chat` / `deepseek-chat` | `DEEPSEEK_API_KEY` | ❌ sub-agents only |
+
+```bash
+# Default: Anthropic
+export ANTHROPIC_API_KEY=sk-ant-...
+expound demo
+
+# Switch to DeepSeek (note: the orchestrator depends on Anthropic beta
+# features — tool_runner, adaptive thinking — which DeepSeek's
+# Anthropic-compat shim doesn't implement; that path will fail loudly)
+export EXPOUND_PROVIDER=deepseek
+export DEEPSEEK_API_KEY=sk-...
+expound demo  # sub-agents still run; the orchestrator step raises a clear error
+```
+
+To override model names per role, set:
+
+- `EXPOUND_MODEL_ORCHESTRATOR`
+- `EXPOUND_MODEL_SUB_AGENT`
+- `EXPOUND_MODEL_FAST`
+
 ## Design principles
 
 - **Human-in-the-loop is the default**: external communications, signatures, and submissions all require human confirmation. No silent auto-approve.

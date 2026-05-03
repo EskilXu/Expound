@@ -74,6 +74,34 @@ Demo 会以一个虚构公司 "ACME Consulting" 作为 Partner Org,依次触发:
 2. Training Coach 为一个示例学员生成学习路径
 3. 模拟一个 HITL 审批卡片(提交申请前)
 
+## Provider 切换(Anthropic / DeepSeek)
+
+Expound 通过 `EXPOUND_PROVIDER` 环境变量在两个 provider 之间切换:
+
+| Provider | 默认模型(orchestrator / sub-agent / fast) | 必需 env | Orchestrator 可用? |
+|---|---|---|---|
+| `anthropic`(默认) | `claude-opus-4-7` / `claude-sonnet-4-6` / `claude-haiku-4-5` | `ANTHROPIC_API_KEY` | ✅ |
+| `deepseek` | `deepseek-reasoner` / `deepseek-chat` / `deepseek-chat` | `DEEPSEEK_API_KEY` | ❌ 仅子 Agent 可直接调用 |
+
+```bash
+# 默认走 Anthropic
+export ANTHROPIC_API_KEY=sk-ant-...
+expound demo
+
+# 切到 DeepSeek(注意:orchestrator 依赖的 Anthropic beta 特性 ——
+# tool_runner / adaptive thinking —— DeepSeek 的 Anthropic 兼容 shim 未实现,
+# 那条路径会被明确拒绝)
+export EXPOUND_PROVIDER=deepseek
+export DEEPSEEK_API_KEY=sk-...
+expound demo  # 子 Agent 仍可运行;orchestrator 步骤会给出明确报错
+```
+
+如需按角色覆盖模型名,可设:
+
+- `EXPOUND_MODEL_ORCHESTRATOR`
+- `EXPOUND_MODEL_SUB_AGENT`
+- `EXPOUND_MODEL_FAST`
+
 ## 设计原则
 
 - **人在环是默认**:对外通讯、签署、提交统统需要人工确认,不设默认放行。
