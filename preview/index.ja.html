@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Expound — Anthropic Partner Network Onboarding Agent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --cream: #f4f1ea;
+        --ink: #1a1a1a;
+        --muted: #6b6b6b;
+        --accent: #c85a3a;
+        --accent-soft: #e8c9bd;
+        --line: #e5dfd2;
+      }
+      body {
+        background: var(--cream);
+        color: var(--ink);
+        font-family:
+          "Fraunces", "Georgia", "Hiragino Mincho ProN", "YuMincho", ui-serif, serif;
+      }
+      .sans {
+        font-family:
+          "Inter", -apple-system, "Hiragino Sans", "Yu Gothic",
+          ui-sans-serif, system-ui, sans-serif;
+      }
+      .accent {
+        color: var(--accent);
+      }
+      .bg-accent {
+        background: var(--accent);
+      }
+      .bg-accent-soft {
+        background: var(--accent-soft);
+      }
+      .border-line {
+        border-color: var(--line);
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .italic-accent {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .card {
+        background: #fffdf8;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.15rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+      .chip-done {
+        background: #e5efe0;
+        color: #2f5a1f;
+      }
+      .chip-run {
+        background: #fbe7b8;
+        color: #6a4600;
+      }
+      .chip-todo {
+        background: #ece6d6;
+        color: #5b5646;
+      }
+      .chip-hitl {
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        display: inline-block;
+      }
+      .grid-journey {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 16px;
+      }
+      @media (max-width: 900px) {
+        .grid-journey {
+          grid-template-columns: 1fr;
+        }
+      }
+      .step-num {
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: "tnum";
+      }
+      .log-line {
+        font-family:
+          "JetBrains Mono", "SF Mono", Menlo, Consolas, ui-monospace, monospace;
+        font-size: 12.5px;
+      }
+      .diag {
+        font-family:
+          "JetBrains Mono", "SF Mono", Menlo, Consolas, ui-monospace, monospace;
+        font-size: 12px;
+        line-height: 1.6;
+        color: #3a3a3a;
+        white-space: pre;
+      }
+      .progress-bar {
+        height: 6px;
+        border-radius: 999px;
+        background: #ece6d6;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        background: var(--accent);
+      }
+      .underline-serif {
+        border-bottom: 1px solid var(--accent);
+        padding-bottom: 2px;
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- Header -->
+    <header class="max-w-6xl mx-auto px-6 pt-14 pb-6">
+      <div class="flex items-center justify-between">
+        <div class="sans text-sm muted tracking-widest uppercase">
+          Expound · Preview
+        </div>
+        <div class="sans text-sm muted">v0.1 · 2026-Q2</div>
+      </div>
+      <h1
+        class="mt-8 text-5xl md:text-6xl leading-[1.05] tracking-tight font-medium"
+      >
+        企業が <span class="italic-accent">Anthropic Partner</span>
+        <br />に参加するその道のりを、人手で押し進めなくていい。
+      </h1>
+      <p class="mt-6 max-w-2xl sans text-lg muted leading-relaxed">
+        Expound はマルチエージェントでオーケストレーションされる onboarding サービス。
+        <span class="underline-serif">資格評価</span> から
+        <span class="underline-serif">認定</span>、
+        <span class="underline-serif">共同ローンチ</span> までの
+        本来は職種・部門・6〜8 週間にわたるプロセスを、
+        エージェント主導 + 人間の承認(HITL)を経るパイプラインに圧縮します。
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2 sans text-sm">
+        <span class="chip chip-done">マルチエージェント・オーケストレーション</span>
+        <span class="chip chip-done">Claude Agent SDK</span>
+        <span class="chip chip-done">Prompt Caching</span>
+        <span class="chip chip-done">Human-in-the-loop</span>
+        <span class="chip chip-done">Slack + Dashboard</span>
+      </div>
+    </header>
+
+    <!-- Journey -->
+    <section class="max-w-6xl mx-auto px-6 pt-6 pb-10">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-3xl md:text-4xl tracking-tight">トレーニング & 認定の旅程</h2>
+        <div class="sans text-sm muted">5 ステージ · 参考期間 8 週間</div>
+      </div>
+
+      <div class="grid-journey">
+        <!-- Stage 1 -->
+        <div class="card p-5">
+          <div class="flex items-baseline justify-between">
+            <div class="step-num accent text-lg">01</div>
+            <span class="chip chip-done">完了</span>
+          </div>
+          <h3 class="mt-2 text-xl">Discover</h3>
+          <p class="sans text-xs muted mt-1">発見 & 申請 · 〜1 週間</p>
+          <ul class="sans text-sm mt-4 space-y-1.5 muted">
+            <li>· 企業プロフィールスキャン</li>
+            <li>· ティアギャップレポート</li>
+            <li>· Business Plan 草案</li>
+            <li>· MSA 署名フロー</li>
+          </ul>
+          <div class="mt-4 sans text-xs muted">主担当エージェント</div>
+          <div class="sans text-xs mt-1">Eligibility Scout · Application Packager</div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="card p-5">
+          <div class="flex items-baseline justify-between">
+            <div class="step-num accent text-lg">02</div>
+            <span class="chip chip-run">進行中</span>
+          </div>
+          <h3 class="mt-2 text-xl">Enable</h3>
+          <p class="sans text-xs muted mt-1">有効化 & トレーニング · 2〜3 週間</p>
+          <ul class="sans text-sm mt-4 space-y-1.5 muted">
+            <li>· 役割 → 学習パス</li>
+            <li>· 週次カレンダー + リマインダー</li>
+            <li>· ライブ / Lab / Office Hour</li>
+            <li>· 完了率ダッシュボード</li>
+          </ul>
+          <div class="mt-4 sans text-xs muted">進捗</div>
+          <div class="progress-bar mt-1"><div class="progress-fill" style="width:62%"></div></div>
+          <div class="sans text-xs muted mt-1">62% · 13 名中 8 名がコアモジュール完了</div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="card p-5">
+          <div class="flex items-baseline justify-between">
+            <div class="step-num accent text-lg">03</div>
+            <span class="chip chip-todo">未開始</span>
+          </div>
+          <h3 class="mt-2 text-xl">Certify</h3>
+          <p class="sans text-xs muted mt-1">認定 · 1〜2 週間</p>
+          <ul class="sans text-sm mt-4 space-y-1.5 muted">
+            <li>· 診断テスト + 弱点深掘り</li>
+            <li>· 3 ラウンドの模試</li>
+            <li>· 準備度スコア ≥ 85</li>
+            <li>· 不合格時の挽回プラン</li>
+          </ul>
+          <div class="mt-4 sans text-xs muted">目標認定</div>
+          <div class="sans text-xs mt-1">
+            Business Associate × 3<br />Solutions Architect × 2
+          </div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="card p-5">
+          <div class="flex items-baseline justify-between">
+            <div class="step-num accent text-lg">04</div>
+            <span class="chip chip-todo">未開始</span>
+          </div>
+          <h3 class="mt-2 text-xl">Launch</h3>
+          <p class="sans text-xs muted mt-1">ローンチ & 共同 GTM · 2 週間</p>
+          <ul class="sans text-sm mt-4 space-y-1.5 muted">
+            <li>· Demo / POC スキャフォールド</li>
+            <li>· 共同ホワイトペーパー</li>
+            <li>· Partner Directory への掲載</li>
+            <li>· Co-marketing キット</li>
+          </ul>
+          <div class="mt-4 sans text-xs muted">主担当エージェント</div>
+          <div class="sans text-xs mt-1">Enablement / GTM</div>
+        </div>
+
+        <!-- Stage 5 -->
+        <div class="card p-5">
+          <div class="flex items-baseline justify-between">
+            <div class="step-num accent text-lg">05</div>
+            <span class="chip chip-todo">継続</span>
+          </div>
+          <h3 class="mt-2 text-xl">Grow</h3>
+          <p class="sans text-xs muted mt-1">成長 & 更新 · 継続</p>
+          <ul class="sans text-sm mt-4 space-y-1.5 muted">
+            <li>· 月次 QBR データパック</li>
+            <li>· ティア昇格パス</li>
+            <li>· 年次再認定(Delta パス)</li>
+            <li>· 期限リマインダー T-45 / T-15 / T-0</li>
+          </ul>
+          <div class="mt-4 sans text-xs muted">主担当エージェント</div>
+          <div class="sans text-xs mt-1">Compliance & Renewal</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="max-w-6xl mx-auto px-6 py-10">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-3xl md:text-4xl tracking-tight">マルチエージェント・アーキテクチャ</h2>
+        <div class="sans text-sm muted">
+          Opus 4.7 オーケストレーター · Sonnet 4.6 サブエージェント · Haiku 4.5 小タスク
+        </div>
+      </div>
+
+      <div class="card p-6">
+        <pre class="diag">
+                      ┌──────────────────────────────┐
+     Slack / Web  ──▶ │   Orchestrator (Opus 4.7)    │ ◀── HITL 承認
+                      └──────────────┬───────────────┘
+                                     │  delegate · aggregate
+        ┌──────────────┬──────────────┼──────────────┬──────────────┐
+        ▼              ▼              ▼              ▼              ▼
+  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+  │Eligibility│   │Application│   │ Training │   │ Cert.    │   │Enablement│
+  │  Scout   │   │ Packager │   │  Coach   │   │Prep      │   │  / GTM   │
+  └────┬─────┘   └────┬─────┘   └────┬─────┘   └────┬─────┘   └────┬─────┘
+       │              │              │              │              │
+       ▼              ▼              ▼              ▼              ▼
+  [Web / RAG]    [Docs / DocuSign] [Academy] [問題 RAG / 採点]   [Agent SDK
+   Partner        CRM · Email      Calendar                      スキャフォールド · Notion]
+   Handbook                        Slack
+        </pre>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 mt-6">
+        <div class="card p-5">
+          <div class="sans text-xs muted uppercase tracking-wider">能力</div>
+          <div class="text-lg mt-1">長期にわたる状態管理</div>
+          <p class="sans text-sm muted mt-2 leading-relaxed">
+            各 Partner Org は週をまたぐ長期タスクオブジェクト。構造化ストレージ + Claude
+            Memory ツールで milestones と artifacts を保持し、すべての履歴を
+            コンテキストに詰め込まないようにします。
+          </p>
+        </div>
+        <div class="card p-5">
+          <div class="sans text-xs muted uppercase tracking-wider">能力</div>
+          <div class="text-lg mt-1">Prompt Caching</div>
+          <p class="sans text-sm muted mt-2 leading-relaxed">
+            Partner Handbook、認定大綱、コンプライアンス条項は安定かつ大容量。
+            <code class="sans">cache_control</code> に置けばヒット率 90%+ となり、
+            コストを大幅に削減できます。
+          </p>
+        </div>
+        <div class="card p-5">
+          <div class="sans text-xs muted uppercase tracking-wider">能力</div>
+          <div class="text-lg mt-1">Human-in-the-loop</div>
+          <p class="sans text-sm muted mt-2 leading-relaxed">
+            申請の送信、契約への署名、対外コミュニケーションは Champion の承認を
+            必須化。カード形式での確認、自動承認は設けません。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agent samples -->
+    <section class="max-w-6xl mx-auto px-6 py-10">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-3xl md:text-4xl tracking-tight">エージェントの作業サンプル</h2>
+        <div class="sans text-sm muted">以下はシミュレーション出力で、実際のパートナーデータではありません</div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <!-- Eligibility sample -->
+        <div class="card p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="sans text-xs muted uppercase tracking-wider">
+                Eligibility Scout
+              </div>
+              <div class="text-xl mt-1">ギャップレポート · ACME Consulting</div>
+            </div>
+            <span class="chip chip-done">出力済み</span>
+          </div>
+          <div class="mt-4 text-sm sans leading-relaxed">
+            <div>
+              <strong>現在満たすティア:</strong>
+              <span class="muted">Registered</span>
+            </div>
+            <div class="mt-1">
+              <strong>推奨目標:</strong> <span>Select</span>
+            </div>
+            <div class="mt-3 muted">目標までのギャップ:</div>
+            <ul class="mt-1 space-y-1">
+              <li>· Solutions Architect 認定 <strong>× 2</strong>(現在 0)</li>
+              <li>· 成約済みの Claude 導入案件 <strong>× 2</strong>(現在 1、POC 進行中)</li>
+              <li>· 公開可能なカスタマーリファレンス <strong>× 1</strong></li>
+            </ul>
+            <div class="mt-3 muted">Select ティア到達見込み:</div>
+            <div><strong>6 週間</strong>(本レポートが推奨する学習 + 認定計画に従う場合)</div>
+          </div>
+        </div>
+
+        <!-- Training path sample -->
+        <div class="card p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="sans text-xs muted uppercase tracking-wider">
+                Training Coach
+              </div>
+              <div class="text-xl mt-1">今週の学習プラン · Wen Li(Solutions Architect 候補)</div>
+            </div>
+            <span class="chip chip-run">進行中</span>
+          </div>
+          <div class="mt-4 text-sm sans space-y-2">
+            <div class="flex justify-between">
+              <span>月 · Messages API 基礎(動画 45m)</span>
+              <span class="chip chip-done">完了</span>
+            </div>
+            <div class="flex justify-between">
+              <span>火 · Tool Use 深掘り(動画 60m + 演習)</span>
+              <span class="chip chip-done">完了</span>
+            </div>
+            <div class="flex justify-between">
+              <span>水 · Prompt Caching とコスト最適化(Lab)</span>
+              <span class="chip chip-run">進行中</span>
+            </div>
+            <div class="flex justify-between">
+              <span>木 · Agent SDK 入門(動画 + Lab)</span>
+              <span class="chip chip-todo">未開始</span>
+            </div>
+            <div class="flex justify-between">
+              <span>金 · Office Hour(Anthropic SE Q&A)</span>
+              <span class="chip chip-todo">予約済み</span>
+            </div>
+          </div>
+          <div class="mt-4 muted text-xs sans">
+            完了率 <strong class="accent">64%</strong> · 今週目標 80% · 金曜 17:00 までに 80% 未達なら Manager に自動エスカレーション
+          </div>
+        </div>
+
+        <!-- Cert prep sample -->
+        <div class="card p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="sans text-xs muted uppercase tracking-wider">
+                Certification Proctor-Prep
+              </div>
+              <div class="text-xl mt-1">模試 · Solutions Architect 第 2 ラウンド</div>
+            </div>
+            <span class="chip chip-run">進行中</span>
+          </div>
+          <div class="mt-4 sans text-sm space-y-2">
+            <div class="flex justify-between">
+              <span>カバレッジ</span><strong>87%</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>正答率</span><strong>79%</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>弱点領域</span><span>Prompt Caching TTL · Tool Use エラー処理</span>
+            </div>
+            <div class="flex justify-between">
+              <span>推奨される次のステップ</span>
+              <span class="italic-accent">特化補強 約 2 時間、その後第 3 ラウンドへ</span>
+            </div>
+            <div class="mt-3 muted text-xs">
+              準備度スコア · <strong class="accent">72 / 100</strong>(85 で「受験可能」をプッシュ)
+            </div>
+          </div>
+        </div>
+
+        <!-- HITL card -->
+        <div class="card p-6 border" style="border-color: var(--accent);">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="sans text-xs uppercase tracking-wider accent">
+                HITL · 承認待ち
+              </div>
+              <div class="text-xl mt-1">Anthropic への正式申請を送信</div>
+            </div>
+            <span class="chip chip-hitl">確認が必要</span>
+          </div>
+          <div class="mt-4 sans text-sm leading-relaxed">
+            <strong>ACME Consulting</strong> の申請資料(Business Plan、会社情報、既存事例 1-pager)を準備しました。
+            <br /><br />
+            <span class="muted">添付:</span>
+            <span>3 ファイル · 5.2 MB</span><br />
+            <span class="muted">目標ティア:</span> <span>Select</span><br />
+            <span class="muted">処理見込み時間:</span>
+            <span>3〜5 営業日</span>
+          </div>
+          <div class="mt-5 flex gap-3">
+            <button class="sans text-sm px-4 py-2 rounded-md bg-accent text-white">
+              承認して送信
+            </button>
+            <button class="sans text-sm px-4 py-2 rounded-md border border-line">
+              資料を確認
+            </button>
+            <button class="sans text-sm px-4 py-2 rounded-md muted">
+              延期
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard mock -->
+    <section class="max-w-6xl mx-auto px-6 py-10">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-3xl md:text-4xl tracking-tight">Partner Org ダッシュボード</h2>
+        <div class="sans text-sm muted">ACME Consulting · Week 3 of 8</div>
+      </div>
+      <div class="card p-6">
+        <div class="grid md:grid-cols-4 gap-6">
+          <div>
+            <div class="sans text-xs muted uppercase tracking-wider">
+              ステージ
+            </div>
+            <div class="text-2xl mt-1">Enable</div>
+            <div class="sans text-xs muted mt-1">W3 · 10 日目</div>
+          </div>
+          <div>
+            <div class="sans text-xs muted uppercase tracking-wider">
+              トレーニング完了率
+            </div>
+            <div class="text-2xl mt-1">62%</div>
+            <div class="progress-bar mt-2">
+              <div class="progress-fill" style="width: 62%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="sans text-xs muted uppercase tracking-wider">
+              認定準備度
+            </div>
+            <div class="text-2xl mt-1">72 / 100</div>
+            <div class="sans text-xs muted mt-1">85 で本試験申込可能</div>
+          </div>
+          <div>
+            <div class="sans text-xs muted uppercase tracking-wider">
+              リスク
+            </div>
+            <div class="text-2xl mt-1 accent">2</div>
+            <div class="sans text-xs muted mt-1">
+              受講者 1 名遅延 · MSA 法務未署名
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <div class="sans text-xs muted uppercase tracking-wider mb-3">
+            最近のイベントストリーム
+          </div>
+          <div class="space-y-1.5">
+            <div class="log-line"><span class="muted">10:41</span>  ✓  Training Coach · Wen Li がモジュール「Tool Use 深掘り」を完了</div>
+            <div class="log-line"><span class="muted">10:12</span>  ⋯  Certification Prep · Zhe Wang が第 2 ラウンドの模試を開始</div>
+            <div class="log-line"><span class="muted">09:58</span>  !  Eligibility Scout · Anthropic 公式の更新を検出: 新たに「Agent Developer」認定科目を追加</div>
+            <div class="log-line"><span class="muted">09:30</span>  ⏳ HITL · Champion の承認待ち「Anthropic への申請送信」</div>
+            <div class="log-line"><span class="muted">09:05</span>  ✓  Orchestrator · 新規受講者 5 名分の学習パスを生成しカレンダーに追加</div>
+            <div class="log-line"><span class="muted">昨日 18:20</span>  ⚠  遅延: Lei Zhang が今週目標の 80% に未達、Manager にエスカレーション済</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto px-6 py-12 sans text-sm muted">
+      <div class="flex flex-wrap justify-between gap-4 border-t border-line pt-6">
+        <div>Expound · Anthropic Partner Onboarding Agent · Preview v0.1</div>
+        <div>本ページはビジュアルプレビューであり、データはシミュレーションです。正式なティア / 認定名は Anthropic 公式に従います。</div>
+      </div>
+    </footer>
+  </body>
+</html>
