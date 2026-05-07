@@ -54,7 +54,7 @@ Each workflow ships with: (a) the prompt sequences, (b) the verification checks,
 
 Two reasons, both honest:
 
-**(1) Mission**: The most concrete way I know to operationalize d/acc accessibility — Vitalik's "differentially accelerate the defensive, decentralized, and accessible" framework — is to give the people who don't write code real instructions for using safety-aligned AI well. Constitutional AI is published and serious; if it doesn't reach the people whose work would benefit from it, that's a distribution failure, not a methodology failure. I want to fix the distribution side.
+**(1) Mission**: The most concrete way I know to operationalize accessibility is to give the people who don't write code real instructions for using safety-aligned AI well. Constitutional AI is published and serious; if it doesn't reach the people whose work would benefit from it, that's a distribution failure, not a methodology failure. I want to fix the distribution side.
 
 **(2) Apprenticeship**: I came to deep agentic AI use late, as an operator without an engineering background. I had to learn this from scratch in 2025–2026 by daily practice. The notes I made for myself are useful to others in the same boat. Sharing them is cheap; the cost of *not* sharing them is that the gap between agentic-AI-fluent and agentic-AI-illiterate professionals will widen and concentrate further.
 
@@ -85,4 +85,4 @@ CC BY 4.0. Use, adapt, redistribute, including commercially. Attribution require
 
 ---
 
-*Maintained by [Eskil (Yufeng Xu)](https://github.com/EskilXu) in Tokyo. Part of the d/acc — defensive, decentralized, accessible — building thread.*
+*Maintained by [Eskil (Yufeng Xu)](https://github.com/EskilXu).*
