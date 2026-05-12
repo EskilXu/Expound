@@ -1,13 +1,43 @@
 # Expound
 
-> **Anthropic + agentic AI, made navigable for non-technical users.**
-> The d/acc *accessibility* pillar, in practice.
+> **From AI Ambition to AI Reality.**
+> The engineering arm of Expound — Hallucination Hedging frameworks, gate-based QA, and Skill/Agent design patterns for reliable AI systems.
 
-[![Status](https://img.shields.io/badge/status-launching-yellow)]() [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)]() [![Audience](https://img.shields.io/badge/for-non--engineers-green)]()
+🌐 **Website:** [expoundlabs.io](https://expoundlabs.io) · 🧭 **Theory:** [FLCA framework](https://github.com/EskilXu/FLCA) · 📬 **Contact:** eskilca2024 [at] gmail [dot] com
+
+[![Status](https://img.shields.io/badge/status-active-green)]() [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)]() [![Framework](https://img.shields.io/badge/framework-FLCA-blue)]()
 
 ---
 
-## The problem
+## About Expound
+
+Expound bridges the gap between AI capability and AI reliability. We work across four pillars:
+
+| Pillar | What it is |
+| --- | --- |
+| 🧭 **Boost** — AI Strategy Consulting | Enterprise AI readiness assessment using the FLCA diagnostic framework |
+| 🛠️ **Build** — AI Agent Development | Custom agents, plugins, and SaaS tools with built-in hallucination hedging |
+| 🌱 **Grow** — Incubation & Acceleration | Technical audits, MVP build support, and founder coaching for AI-native startups |
+| 📈 **Back** — AI Venture Investment | Thesis-driven seed investment in AI-native companies |
+
+Every engagement is grounded in cognitive architecture — not hype cycles. See **[expoundlabs.io](https://expoundlabs.io)** for service details and the full FLCA explainer.
+
+---
+
+## This Repository
+
+This repo is the **engineering & open-source lab** behind Expound. It hosts the practical artifacts that come out of FLCA-informed work:
+
+- **Hallucination Hedging** — engineering patterns for catching what LLMs get confidently wrong
+- **Workflows** — opinionated, verification-first playbooks for serious knowledge work with Claude
+- **Failure modes** — documented from real use, not theory
+- **Audience personas** — who this work is for and how each persona uses it
+
+The companion theory repository is [EskilXu/FLCA](https://github.com/EskilXu/FLCA) (the Four-Layer Cognitive Architecture paper and formal definitions).
+
+---
+
+## Workflows Collection — The accessibility gap
 
 Most of the people who would benefit most from agentic AI tools — operators, lawyers, researchers, journalists, school administrators, mid-career knowledge workers — bounce off the documentation. The official docs assume Python, the YouTube tutorials assume you can read a stack trace, and the "AI for everyone" courses are usually thin.
 
@@ -15,7 +45,7 @@ Meanwhile the people who *do* navigate the tools (developers, ML researchers, in
 
 That gap is the d/acc accessibility problem. It's also a strategic problem: a frontier safety methodology — like Constitutional AI — only delivers safety in proportion to how widely it's actually used in practice. Tools used by 1% of the people who could use them well are not safe. They're concentrated.
 
-## What this is
+## What the workflows collection is
 
 `Expound` is a curated, opinionated guide collection for non-technical users to **actually use** Anthropic's Claude (and adjacent agentic AI tools) for serious work — research, drafting, decision support, knowledge management, contract review, market analysis. It's not "10 cool ChatGPT tricks." It's:
 
