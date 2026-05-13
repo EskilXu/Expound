@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="meta.title">Expound — From AI Ambition to AI Reality</title>
-<meta name="description" data-i18n-attr="content:meta.description" content="Expound: AI strategy consulting, agent development, incubation and investment. Powered by the Four-Layer Cognitive Architecture (FLCA).">
+<title>Expound — From AI Ambition to AI Reality</title>
+<meta name="description" content="Expound: AI strategy consulting, agent development, incubation and investment. Powered by the Four-Layer Cognitive Architecture (FLCA).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -57,20 +57,6 @@ nav {
   font-size: 0.88rem; font-weight: 500; transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--white); }
-.nav-lang {
-  display: flex; gap: 0.25rem;
-  border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
-  overflow: hidden;
-}
-.nav-lang button {
-  background: none; border: none; color: rgba(255,255,255,0.5);
-  font-size: 0.75rem; padding: 4px 10px; cursor: pointer; font-weight: 500;
-  transition: all 0.2s;
-}
-.nav-lang button.active,
-.nav-lang button:hover {
-  background: rgba(255,255,255,0.15); color: var(--white);
-}
 
 /* ===== HERO ===== */
 .hero {
@@ -334,28 +320,23 @@ footer a:hover { color: var(--white); }
   <div class="nav-inner">
     <a href="#" class="nav-logo">EXPOUND<span>.</span></a>
     <ul class="nav-links">
-      <li><a href="#services" data-i18n="nav.services">Services</a></li>
-      <li><a href="#flca" data-i18n="nav.flca">FLCA</a></li>
-      <li><a href="#lab" data-i18n="nav.lab">Lab</a></li>
-      <li><a href="#thesis" data-i18n="nav.thesis">Thesis</a></li>
-      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#flca">FLCA</a></li>
+      <li><a href="#lab">Lab</a></li>
+      <li><a href="#thesis">Thesis</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="nav-lang">
-      <button data-lang="en" class="active">EN</button>
-      <button data-lang="zh">中</button>
-      <button data-lang="ja">日</button>
-    </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <h1 data-i18n-html="hero.title">From AI Ambition<br>to <em>AI Reality</em></h1>
-    <p data-i18n="hero.subtitle">AI systems are getting powerful. But power without reliability is a liability. Expound bridges the gap — with rigorous cognitive architecture, battle-tested engineering, and hands-on execution.</p>
+    <h1>From AI Ambition<br>to <em>AI Reality</em></h1>
+    <p>AI systems are getting powerful. But power without reliability is a liability. Expound bridges the gap — with rigorous cognitive architecture, principled engineering, and hands-on execution.</p>
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary" data-i18n="hero.cta_primary">Book a Consultation</a>
-      <a href="#flca" class="btn btn-outline" data-i18n="hero.cta_outline">Explore FLCA Framework ↓</a>
+      <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+      <a href="#flca" class="btn btn-outline">Explore FLCA Framework &darr;</a>
     </div>
   </div>
 </section>
@@ -365,23 +346,23 @@ footer a:hover { color: var(--white); }
   <div class="container">
     <div class="problem-grid">
       <div class="problem-text">
-        <div class="section-label" data-i18n="problem.label">The Problem</div>
-        <h3 data-i18n-html="problem.heading">AI capability is surging.<br>AI reliability is not.</h3>
-        <p data-i18n="problem.p1">Large Language Models can write code, draft contracts, and analyze data. But they hallucinate. They confuse confidence with correctness. They don't know what they don't know.</p>
-        <p data-i18n-html="problem.p2">Most AI consulting firms treat this as a fine-tuning problem. We see it as an <strong>architectural absence</strong> — and that diagnosis changes everything about how you deploy AI.</p>
+        <div class="section-label">The Problem</div>
+        <h3>AI capability is surging.<br>AI reliability is not.</h3>
+        <p>Large Language Models can write code, draft contracts, and analyze data. But they hallucinate. They confuse confidence with correctness. They don't know what they don't know.</p>
+        <p>Most AI consulting firms treat this as a fine-tuning problem. We see it as an <strong>architectural absence</strong> — and that diagnosis changes everything about how you deploy AI.</p>
       </div>
       <div class="problem-visual">
         <div class="gap-diagram">
           <div class="gap-bar">
-            <span class="gap-bar-label" data-i18n="problem.gap_capability">Capability</span>
-            <div class="gap-bar-fill capability" data-i18n="problem.gap_capability_value">Exponential growth</div>
+            <span class="gap-bar-label">Capability</span>
+            <div class="gap-bar-fill capability">Exponential growth</div>
           </div>
           <div class="gap-bar">
-            <span class="gap-bar-label" data-i18n="problem.gap_reliability">Reliability</span>
-            <div class="gap-bar-fill reliability" data-i18n="problem.gap_reliability_value">Lagging</div>
+            <span class="gap-bar-label">Reliability</span>
+            <div class="gap-bar-fill reliability">Lagging</div>
           </div>
         </div>
-        <div class="gap-label-center" data-i18n="problem.gap_label">↑ THE CARE GAP ↑</div>
+        <div class="gap-label-center">↑ THE CARE GAP ↑</div>
       </div>
     </div>
   </div>
@@ -390,33 +371,33 @@ footer a:hover { color: var(--white); }
 <!-- SERVICES -->
 <section id="services">
   <div class="container">
-    <div class="section-label" data-i18n="services.label">What We Do</div>
-    <div class="section-title" data-i18n="services.title">Four pillars. One mission.</div>
-    <div class="section-subtitle" data-i18n="services.subtitle">Every engagement is grounded in cognitive architecture — not hype cycles.</div>
+    <div class="section-label">What We Do</div>
+    <div class="section-title">Four pillars. One mission.</div>
+    <div class="section-subtitle">Every engagement is grounded in cognitive architecture — not hype cycles.</div>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">&#x1F9ED;</div>
-        <div class="service-sub" data-i18n="services.boost.sub">Boost</div>
-        <h3 data-i18n="services.boost.title">AI Strategy Consulting</h3>
-        <p data-i18n="services.boost.desc">Enterprise AI readiness assessment using the FLCA diagnostic framework. Architecture review, vendor evaluation, and deployment roadmaps that account for what AI actually can — and cannot — do.</p>
+        <div class="service-sub">Boost</div>
+        <h3>AI Strategy Consulting</h3>
+        <p>Enterprise AI readiness assessment using the FLCA diagnostic framework. Architecture review, vendor evaluation, and deployment roadmaps that account for what AI actually can — and cannot — do.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">&#x1F6E0;</div>
-        <div class="service-sub" data-i18n="services.build.sub">Build</div>
-        <h3 data-i18n="services.build.title">AI Agent Development</h3>
-        <p data-i18n="services.build.desc">Custom AI agents, plugins, and SaaS tools with built-in hallucination hedging. From Claude Skills to full enterprise workflow automation — engineered for reliability.</p>
+        <div class="service-sub">Build</div>
+        <h3>AI Agent Development</h3>
+        <p>Custom AI agents, plugins, and SaaS tools with built-in hallucination hedging. From Claude Skills to full enterprise workflow automation — engineered for reliability.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">&#x1F331;</div>
-        <div class="service-sub" data-i18n="services.grow.sub">Grow</div>
-        <h3 data-i18n="services.grow.title">Incubation & Acceleration</h3>
-        <p data-i18n="services.grow.desc">Technical architecture audits, MVP build support, and founder coaching for AI-native startups. We evaluate your product through the lens of cognitive architecture gaps.</p>
+        <div class="service-sub">Grow</div>
+        <h3>Incubation & Acceleration</h3>
+        <p>Technical architecture audits, MVP build support, and founder coaching for AI-native startups. We evaluate your product through the lens of cognitive architecture gaps.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">&#x1F4C8;</div>
-        <div class="service-sub" data-i18n="services.back.sub">Back</div>
-        <h3 data-i18n="services.back.title">AI Venture Investment</h3>
-        <p data-i18n="services.back.desc">Thesis-driven seed investment in AI-native companies. We invest where we see real cognitive architecture value — not where the hype is loudest.</p>
+        <div class="service-sub">Back</div>
+        <h3>AI Venture Investment</h3>
+        <p>Thesis-driven seed investment in AI-native companies. We invest where we see real cognitive architecture value — not where the hype is loudest.</p>
       </div>
     </div>
   </div>
@@ -425,41 +406,41 @@ footer a:hover { color: var(--white); }
 <!-- FLCA -->
 <section id="flca" class="flca">
   <div class="container">
-    <div class="section-label" data-i18n="flca.label">Theoretical Foundation</div>
-    <div class="section-title" data-i18n="flca.title">The Four-Layer Cognitive Architecture</div>
-    <div class="section-subtitle" data-i18n="flca.subtitle">FLCA is our proprietary diagnostic framework. It explains why AI hallucinates — and what you can actually do about it.</div>
+    <div class="section-label">Theoretical Foundation</div>
+    <div class="section-title">The Four-Layer Cognitive Architecture</div>
+    <div class="section-subtitle">FLCA is our original diagnostic framework, developed by the founder and published as open research. It explains why AI hallucinates — and what you can actually do about it.</div>
 
     <div class="flca-layers">
       <div class="flca-layer">
-        <div class="layer-num" data-i18n="flca.layer1.num">Layer 1</div>
-        <div class="layer-name" data-i18n="flca.layer1.name">World Model</div>
-        <div class="layer-desc" data-i18n="flca.layer1.desc">Grounding in physical and environmental reality</div>
+        <div class="layer-num">Layer 1</div>
+        <div class="layer-name">World Model</div>
+        <div class="layer-desc">Grounding in physical and environmental reality</div>
       </div>
       <div class="flca-layer">
-        <div class="layer-num" data-i18n="flca.layer2.num">Layer 2</div>
-        <div class="layer-name" data-i18n="flca.layer2.name">Reasoning</div>
-        <div class="layer-desc" data-i18n="flca.layer2.desc">Abstract and causal inference capabilities</div>
+        <div class="layer-num">Layer 2</div>
+        <div class="layer-name">Reasoning</div>
+        <div class="layer-desc">Abstract and causal inference capabilities</div>
       </div>
       <div class="flca-layer">
-        <div class="layer-num" data-i18n="flca.layer3.num">Layer 3</div>
-        <div class="layer-name" data-i18n="flca.layer3.name">Metacognition</div>
-        <div class="layer-desc" data-i18n="flca.layer3.desc">Self-monitoring and confidence calibration</div>
+        <div class="layer-num">Layer 3</div>
+        <div class="layer-name">Metacognition</div>
+        <div class="layer-desc">Self-monitoring and confidence calibration</div>
       </div>
       <div class="flca-layer">
-        <div class="layer-num" data-i18n="flca.layer4.num">Layer 4</div>
-        <div class="layer-name" data-i18n="flca.layer4.name">Motivation</div>
-        <div class="layer-desc" data-i18n="flca.layer4.desc">Internal drive for accuracy and alignment</div>
+        <div class="layer-num">Layer 4</div>
+        <div class="layer-name">Motivation</div>
+        <div class="layer-desc">Internal drive for accuracy and alignment</div>
       </div>
     </div>
 
     <div class="flca-insight">
       <div class="flca-insight-icon">&#x1F50D;</div>
       <div>
-        <p data-i18n-html="flca.insight"><strong>Core Insight: The Care Gap.</strong> Current LLMs have the surface of Layer 2 but lack Layers 1, 3, and 4. These layers have <strong>generative dependency</strong> — you cannot skip a layer. Hallucination is not a fixable bug; it is a symptom of architectural absence. This diagnosis changes how you design, deploy, and hedge AI systems.</p>
+        <p><strong>Core Insight: The Care Gap.</strong> Current LLMs have the surface of Layer 2 but lack Layers 1, 3, and 4. These layers have <strong>generative dependency</strong> — you cannot skip a layer. Hallucination is not a fixable bug; it is a symptom of architectural absence. This diagnosis changes how you design, deploy, and hedge AI systems.</p>
       </div>
     </div>
 
-    <a href="https://github.com/EskilXu/FLCA" target="_blank" class="flca-link" data-i18n="flca.link">
+    <a href="https://github.com/EskilXu/FLCA" target="_blank" class="flca-link">
       Read the full framework on GitHub &rarr;
     </a>
   </div>
@@ -468,26 +449,20 @@ footer a:hover { color: var(--white); }
 <!-- LAB -->
 <section id="lab" class="lab">
   <div class="container">
-    <div class="section-label" data-i18n="lab.label">Open Source</div>
-    <div class="section-title" data-i18n="lab.title">Theory &rarr; Engineering &rarr; Practice</div>
-    <div class="section-subtitle" data-i18n="lab.subtitle">We publish our frameworks. Scrutiny makes them stronger.</div>
+    <div class="section-label">Open Source</div>
+    <div class="section-title">Theory &rarr; Engineering &rarr; Practice</div>
+    <div class="section-subtitle">We publish our frameworks. Scrutiny makes them stronger.</div>
 
     <div class="lab-repos">
       <div class="repo-card">
-        <h3>
-          <span data-i18n="lab.flca_card.title">EskilXu/FLCA</span>
-          <span class="repo-tag" data-i18n="lab.flca_card.tag">Research</span>
-        </h3>
-        <p data-i18n="lab.flca_card.desc">The Four-Layer Cognitive Architecture paper, formal definitions, and supporting evidence. A unified diagnostic framework for understanding hallucination in both AI and human cognitive systems.</p>
-        <a href="https://github.com/EskilXu/FLCA" target="_blank" data-i18n="lab.flca_card.link">View Repository &rarr;</a>
+        <h3>EskilXu/FLCA <span class="repo-tag">Research</span></h3>
+        <p>The Four-Layer Cognitive Architecture paper, formal definitions, and supporting evidence. A unified diagnostic framework for understanding hallucination in both AI and human cognitive systems.</p>
+        <a href="https://github.com/EskilXu/FLCA" target="_blank">View Repository &rarr;</a>
       </div>
       <div class="repo-card">
-        <h3>
-          <span data-i18n="lab.expound_card.title">EskilXu/Expound</span>
-          <span class="repo-tag" data-i18n="lab.expound_card.tag">Engineering</span>
-        </h3>
-        <p data-i18n="lab.expound_card.desc">Hallucination Hedging engineering framework, gate-based QA processes, Skill/Agent design patterns, and practical tools for building reliable AI systems.</p>
-        <a href="https://github.com/EskilXu/Expound" target="_blank" data-i18n="lab.expound_card.link">View Repository &rarr;</a>
+        <h3>EskilXu/Expound <span class="repo-tag">Practice</span></h3>
+        <p>Verification-first workflows for serious knowledge work with Claude, documented failure modes from real use, and the audience personas these workflows target. The applied counterpart to FLCA.</p>
+        <a href="https://github.com/EskilXu/Expound" target="_blank">View Repository &rarr;</a>
       </div>
     </div>
   </div>
@@ -496,25 +471,25 @@ footer a:hover { color: var(--white); }
 <!-- THESIS -->
 <section id="thesis">
   <div class="container">
-    <div class="section-label" data-i18n="thesis.label">AI Thesis Series</div>
-    <div class="section-title" data-i18n="thesis.title">Startup & Investment in the Age of AI</div>
-    <div class="section-subtitle" data-i18n="thesis.subtitle">Our thinking on where AI creates real value — and where it doesn't.</div>
+    <div class="section-label">AI Thesis Series</div>
+    <div class="section-title">Startup & Investment in the Age of AI</div>
+    <div class="section-subtitle">Our thinking on where AI creates real value — and where it doesn't.</div>
 
     <div class="thesis-grid">
       <div class="thesis-card">
-        <span class="thesis-tag macro" data-i18n="thesis.t1.tag">Macro Thesis</span>
-        <h3 data-i18n="thesis.t1.title">The Care Gap: Why Most AI Products Fail at Reliability</h3>
-        <p data-i18n="thesis.t1.desc">From FLCA theory to market reality — why the gap between AI capability and reliability is the defining opportunity of this decade.</p>
+        <span class="thesis-tag macro">Macro Thesis</span>
+        <h3>The Care Gap: Why Most AI Products Fail at Reliability</h3>
+        <p>From FLCA theory to market reality — why the gap between AI capability and reliability is the defining opportunity of this decade.</p>
       </div>
       <div class="thesis-card">
-        <span class="thesis-tag builder" data-i18n="thesis.t2.tag">Builder Thesis</span>
-        <h3 data-i18n="thesis.t2.title">Hallucination is Not a Bug: Designing AI Products with Architectural Honesty</h3>
-        <p data-i18n="thesis.t2.desc">How the FLCA framework changes product design decisions — from "eliminate hallucination" to "hedge against it systematically."</p>
+        <span class="thesis-tag builder">Builder Thesis</span>
+        <h3>Hallucination is Not a Bug: Designing AI Products with Architectural Honesty</h3>
+        <p>How the FLCA framework changes product design decisions — from "eliminate hallucination" to "hedge against it systematically."</p>
       </div>
       <div class="thesis-card">
-        <span class="thesis-tag coming" data-i18n="thesis.t3.tag">Coming Soon</span>
-        <h3 data-i18n="thesis.t3.title">Why Now: The AI Agent Infrastructure Moment</h3>
-        <p data-i18n="thesis.t3.desc">The convergence of model capability, tool ecosystems, and enterprise readiness that makes 2026 the inflection point for AI agents.</p>
+        <span class="thesis-tag coming">Coming Soon</span>
+        <h3>Why Now: The AI Agent Infrastructure Moment</h3>
+        <p>The convergence of model capability, tool ecosystems, and enterprise readiness that makes 2026 the inflection point for AI agents.</p>
       </div>
     </div>
   </div>
@@ -523,29 +498,29 @@ footer a:hover { color: var(--white); }
 <!-- CONTACT -->
 <section id="contact" class="contact">
   <div class="container">
-    <div class="section-label" style="color: var(--accent-light);" data-i18n="contact.label">Get Started</div>
-    <div class="section-title" data-i18n="contact.title">Let's talk about your AI reality.</div>
-    <div class="section-subtitle" data-i18n="contact.subtitle">Whether you're deploying AI in your enterprise, building an AI startup, or evaluating an investment — we can help.</div>
+    <div class="section-label" style="color: var(--accent-light);">Get Started</div>
+    <div class="section-title">Let's talk about your AI reality.</div>
+    <div class="section-subtitle">Whether you're deploying AI in your enterprise, building an AI startup, or evaluating an investment — we can help.</div>
 
-    <a href="mailto:eskilca2024@gmail.com" class="btn btn-primary" style="font-size: 1.05rem; padding: 1rem 2.5rem;" data-i18n="contact.cta">
+    <a href="mailto:eskil@expoundlabs.io" class="btn btn-primary" style="font-size: 1.05rem; padding: 1rem 2.5rem;">
       Book a Consultation
     </a>
 
     <div class="contact-options">
       <div class="contact-item">
-        <h4 data-i18n="contact.item1.h4">Enterprise Consulting</h4>
-        <p data-i18n="contact.item1.p">AI readiness & deployment</p>
+        <h4>Enterprise Consulting</h4>
+        <p>AI readiness & deployment</p>
       </div>
       <div class="contact-item">
-        <h4 data-i18n="contact.item2.h4">Incubation</h4>
-        <p data-i18n="contact.item2.p">Apply for AI startup support</p>
+        <h4>Incubation</h4>
+        <p>Apply for AI startup support</p>
       </div>
       <div class="contact-item">
-        <h4 data-i18n="contact.item3.h4">Investment</h4>
-        <p data-i18n="contact.item3.p">Submit your pitch deck</p>
+        <h4>Investment</h4>
+        <p>Submit your pitch deck</p>
       </div>
       <div class="contact-item">
-        <h4 data-i18n="contact.item4.h4">GitHub</h4>
+        <h4>GitHub</h4>
         <p><a href="https://github.com/EskilXu" target="_blank">github.com/EskilXu</a></p>
       </div>
     </div>
@@ -554,274 +529,11 @@ footer a:hover { color: var(--white); }
 
 <!-- FOOTER -->
 <footer>
-  <p data-i18n-html="footer">&copy; 2026 Expound Limited &middot; Hong Kong &middot;
+  <p>&copy; 2026 Expound Limited &middot; Hong Kong &middot;
     <a href="https://github.com/EskilXu/FLCA">FLCA</a> &middot;
     <a href="https://github.com/EskilXu/Expound">Lab</a>
   </p>
 </footer>
-
-<script>
-const I18N = {
-  en: {
-    meta: {
-      title: "Expound — From AI Ambition to AI Reality",
-      description: "Expound: AI strategy consulting, agent development, incubation and investment. Powered by the Four-Layer Cognitive Architecture (FLCA)."
-    },
-    nav: { services: "Services", flca: "FLCA", lab: "Lab", thesis: "Thesis", contact: "Contact" },
-    hero: {
-      title: 'From AI Ambition<br>to <em>AI Reality</em>',
-      subtitle: "AI systems are getting powerful. But power without reliability is a liability. Expound bridges the gap — with rigorous cognitive architecture, battle-tested engineering, and hands-on execution.",
-      cta_primary: "Book a Consultation",
-      cta_outline: "Explore FLCA Framework ↓"
-    },
-    problem: {
-      label: "The Problem",
-      heading: "AI capability is surging.<br>AI reliability is not.",
-      p1: "Large Language Models can write code, draft contracts, and analyze data. But they hallucinate. They confuse confidence with correctness. They don't know what they don't know.",
-      p2: 'Most AI consulting firms treat this as a fine-tuning problem. We see it as an <strong>architectural absence</strong> — and that diagnosis changes everything about how you deploy AI.',
-      gap_capability: "Capability",
-      gap_capability_value: "Exponential growth",
-      gap_reliability: "Reliability",
-      gap_reliability_value: "Lagging",
-      gap_label: "↑ THE CARE GAP ↑"
-    },
-    services: {
-      label: "What We Do",
-      title: "Four pillars. One mission.",
-      subtitle: "Every engagement is grounded in cognitive architecture — not hype cycles.",
-      boost: { sub: "Boost", title: "AI Strategy Consulting", desc: "Enterprise AI readiness assessment using the FLCA diagnostic framework. Architecture review, vendor evaluation, and deployment roadmaps that account for what AI actually can — and cannot — do." },
-      build: { sub: "Build", title: "AI Agent Development", desc: "Custom AI agents, plugins, and SaaS tools with built-in hallucination hedging. From Claude Skills to full enterprise workflow automation — engineered for reliability." },
-      grow: { sub: "Grow", title: "Incubation & Acceleration", desc: "Technical architecture audits, MVP build support, and founder coaching for AI-native startups. We evaluate your product through the lens of cognitive architecture gaps." },
-      back: { sub: "Back", title: "AI Venture Investment", desc: "Thesis-driven seed investment in AI-native companies. We invest where we see real cognitive architecture value — not where the hype is loudest." }
-    },
-    flca: {
-      label: "Theoretical Foundation",
-      title: "The Four-Layer Cognitive Architecture",
-      subtitle: "FLCA is our proprietary diagnostic framework. It explains why AI hallucinates — and what you can actually do about it.",
-      layer1: { num: "Layer 1", name: "World Model", desc: "Grounding in physical and environmental reality" },
-      layer2: { num: "Layer 2", name: "Reasoning", desc: "Abstract and causal inference capabilities" },
-      layer3: { num: "Layer 3", name: "Metacognition", desc: "Self-monitoring and confidence calibration" },
-      layer4: { num: "Layer 4", name: "Motivation", desc: "Internal drive for accuracy and alignment" },
-      insight: '<strong>Core Insight: The Care Gap.</strong> Current LLMs have the surface of Layer 2 but lack Layers 1, 3, and 4. These layers have <strong>generative dependency</strong> — you cannot skip a layer. Hallucination is not a fixable bug; it is a symptom of architectural absence. This diagnosis changes how you design, deploy, and hedge AI systems.',
-      link: "Read the full framework on GitHub →"
-    },
-    lab: {
-      label: "Open Source",
-      title: "Theory → Engineering → Practice",
-      subtitle: "We publish our frameworks. Scrutiny makes them stronger.",
-      flca_card: { title: "EskilXu/FLCA", tag: "Research", desc: "The Four-Layer Cognitive Architecture paper, formal definitions, and supporting evidence. A unified diagnostic framework for understanding hallucination in both AI and human cognitive systems.", link: "View Repository →" },
-      expound_card: { title: "EskilXu/Expound", tag: "Engineering", desc: "Hallucination Hedging engineering framework, gate-based QA processes, Skill/Agent design patterns, and practical tools for building reliable AI systems.", link: "View Repository →" }
-    },
-    thesis: {
-      label: "AI Thesis Series",
-      title: "Startup & Investment in the Age of AI",
-      subtitle: "Our thinking on where AI creates real value — and where it doesn't.",
-      t1: { tag: "Macro Thesis", title: "The Care Gap: Why Most AI Products Fail at Reliability", desc: "From FLCA theory to market reality — why the gap between AI capability and reliability is the defining opportunity of this decade." },
-      t2: { tag: "Builder Thesis", title: "Hallucination is Not a Bug: Designing AI Products with Architectural Honesty", desc: 'How the FLCA framework changes product design decisions — from "eliminate hallucination" to "hedge against it systematically."' },
-      t3: { tag: "Coming Soon", title: "Why Now: The AI Agent Infrastructure Moment", desc: "The convergence of model capability, tool ecosystems, and enterprise readiness that makes 2026 the inflection point for AI agents." }
-    },
-    contact: {
-      label: "Get Started",
-      title: "Let's talk about your AI reality.",
-      subtitle: "Whether you're deploying AI in your enterprise, building an AI startup, or evaluating an investment — we can help.",
-      cta: "Book a Consultation",
-      item1: { h4: "Enterprise Consulting", p: "AI readiness & deployment" },
-      item2: { h4: "Incubation", p: "Apply for AI startup support" },
-      item3: { h4: "Investment", p: "Submit your pitch deck" },
-      item4: { h4: "GitHub" }
-    },
-    footer: '© 2026 Expound Limited · Hong Kong · <a href="https://github.com/EskilXu/FLCA">FLCA</a> · <a href="https://github.com/EskilXu/Expound">Lab</a>'
-  },
-  zh: {
-    meta: {
-      title: "Expound — 从 AI 雄心到 AI 现实",
-      description: "Expound:AI 战略咨询、智能体开发、孵化与投资。以四层认知架构(FLCA)为方法论基础。"
-    },
-    nav: { services: "服务", flca: "FLCA", lab: "实验室", thesis: "观点", contact: "联系" },
-    hero: {
-      title: '从 AI 雄心,<br>走向 <em>AI 现实</em>',
-      subtitle: "AI 系统正变得越来越强大。但缺乏可靠性的强大,本质上是负债。Expound 用严谨的认知架构、经过实战检验的工程能力,以及亲力亲为的执行,跨越能力与可靠性之间的鸿沟。",
-      cta_primary: "预约咨询",
-      cta_outline: "了解 FLCA 框架 ↓"
-    },
-    problem: {
-      label: "问题",
-      heading: "AI 能力在指数级增长,<br>AI 可靠性却没有。",
-      p1: "大语言模型可以写代码、起草合同、分析数据。但它们会产生幻觉,会把自信和正确混为一谈,也不知道自己不知道什么。",
-      p2: '大多数 AI 咨询公司把它当作微调问题来处理。我们把它视为<strong>架构性的缺失</strong> —— 这一诊断会彻底改变 AI 落地的方式。',
-      gap_capability: "能力",
-      gap_capability_value: "指数级增长",
-      gap_reliability: "可靠性",
-      gap_reliability_value: "明显滞后",
-      gap_label: "↑ THE CARE GAP ↑"
-    },
-    services: {
-      label: "我们做什么",
-      title: "四大支柱,一个使命。",
-      subtitle: "每一次合作,都根植于认知架构 —— 而非概念炒作。",
-      boost: { sub: "Boost", title: "AI 战略咨询", desc: "基于 FLCA 诊断框架的企业 AI 就绪度评估。架构审查、供应商评估,以及兼顾 AI 能与不能之事的落地路线图。" },
-      build: { sub: "Build", title: "AI 智能体开发", desc: "内置幻觉对冲机制的定制智能体、插件与 SaaS 工具。从 Claude Skills 到完整的企业工作流自动化 —— 工程化设计,可靠为先。" },
-      grow: { sub: "Grow", title: "孵化与加速", desc: "面向 AI 原生初创公司的技术架构审计、MVP 构建支持,以及创始人辅导。我们以认知架构鸿沟的视角评估你的产品。" },
-      back: { sub: "Back", title: "AI 风险投资", desc: "以论点驱动的种子轮投资,聚焦 AI 原生公司。我们投资于真实的认知架构价值 —— 而非声音最大的炒作。" }
-    },
-    flca: {
-      label: "理论基础",
-      title: "四层认知架构(FLCA)",
-      subtitle: "FLCA 是我们自有的诊断框架。它解释 AI 为什么会产生幻觉 —— 以及你究竟能为此做些什么。",
-      layer1: { num: "第 1 层", name: "世界模型", desc: "对物理与环境现实的锚定" },
-      layer2: { num: "第 2 层", name: "推理", desc: "抽象与因果推断能力" },
-      layer3: { num: "第 3 层", name: "元认知", desc: "自我监测与置信度校准" },
-      layer4: { num: "第 4 层", name: "动机", desc: "对准确与对齐的内在驱动" },
-      insight: '<strong>核心洞察:Care Gap(在意鸿沟)。</strong>当前的大模型有第 2 层的表象,却缺失第 1、3、4 层。这些层之间存在<strong>生成性依赖</strong> —— 你无法跳过任何一层。幻觉不是可修复的 bug,它是架构缺失的症状。这一诊断,会改变你设计、部署与对冲 AI 系统的方式。',
-      link: "在 GitHub 上阅读完整框架 →"
-    },
-    lab: {
-      label: "开源",
-      title: "理论 → 工程 → 实践",
-      subtitle: "我们公开发布自己的框架。接受审视,才能让它更强。",
-      flca_card: { title: "EskilXu/FLCA", tag: "研究", desc: "四层认知架构论文、形式化定义与支撑证据。一个统一的诊断框架,理解 AI 与人类认知系统中的幻觉。", link: "查看仓库 →" },
-      expound_card: { title: "EskilXu/Expound", tag: "工程", desc: "幻觉对冲工程框架、基于关卡的 QA 流程、Skill/Agent 设计模式,以及构建可靠 AI 系统的实用工具。", link: "查看仓库 →" }
-    },
-    thesis: {
-      label: "AI 观点系列",
-      title: "AI 时代的创业与投资",
-      subtitle: "我们对 AI 何处创造真实价值 —— 与何处并不 —— 的思考。",
-      t1: { tag: "宏观观点", title: "Care Gap:为什么大多数 AI 产品在可靠性上失败", desc: "从 FLCA 理论到市场现实 —— AI 能力与可靠性之间的鸿沟,是这个十年最具决定性的机会。" },
-      t2: { tag: "建造者观点", title: "幻觉不是 bug:用架构诚实设计 AI 产品", desc: "FLCA 框架如何改变产品设计决策 —— 从「消除幻觉」转向「系统化地对冲幻觉」。" },
-      t3: { tag: "即将发布", title: "为什么是现在:AI 智能体基础设施时刻", desc: "模型能力、工具生态与企业就绪度的汇合,使 2026 年成为 AI 智能体的拐点。" }
-    },
-    contact: {
-      label: "开始合作",
-      title: "聊聊你的 AI 现实。",
-      subtitle: "无论你是在企业内部署 AI、构建 AI 创业公司,还是评估一笔投资 —— 我们都能帮上忙。",
-      cta: "预约咨询",
-      item1: { h4: "企业咨询", p: "AI 就绪度与落地" },
-      item2: { h4: "孵化", p: "申请 AI 创业支持" },
-      item3: { h4: "投资", p: "提交你的 BP" },
-      item4: { h4: "GitHub" }
-    },
-    footer: '© 2026 Expound Limited · 香港 · <a href="https://github.com/EskilXu/FLCA">FLCA</a> · <a href="https://github.com/EskilXu/Expound">实验室</a>'
-  },
-  ja: {
-    meta: {
-      title: "Expound — AIの野心から、AIの現実へ",
-      description: "Expound:AI戦略コンサルティング、エージェント開発、インキュベーション、ベンチャー投資。四層認知アーキテクチャ(FLCA)を方法論として。"
-    },
-    nav: { services: "サービス", flca: "FLCA", lab: "ラボ", thesis: "テーゼ", contact: "お問い合わせ" },
-    hero: {
-      title: 'AIの野心から、<br><em>AIの現実</em>へ',
-      subtitle: "AIシステムは強力になっています。しかし信頼性を欠いた強力さは、負債でしかありません。Expoundは、厳密な認知アーキテクチャ、実戦で鍛えたエンジニアリング、そして現場での実行力で、能力と信頼性の間のギャップを橋渡しします。",
-      cta_primary: "コンサルティングを予約する",
-      cta_outline: "FLCAフレームワークを見る ↓"
-    },
-    problem: {
-      label: "問題",
-      heading: "AIの能力は加速している。<br>AIの信頼性は追いついていない。",
-      p1: "大規模言語モデルはコードを書き、契約書をドラフトし、データを分析できます。しかし幻覚(ハルシネーション)を起こし、自信と正しさを混同し、自分が何を知らないかを知りません。",
-      p2: '多くのAIコンサルティング会社は、これをファインチューニングの問題として扱います。私たちはこれを<strong>アーキテクチャの不在</strong>として捉えます ―― この診断こそが、AI導入のあり方をすべて変えるのです。',
-      gap_capability: "能力",
-      gap_capability_value: "指数関数的成長",
-      gap_reliability: "信頼性",
-      gap_reliability_value: "遅れている",
-      gap_label: "↑ THE CARE GAP ↑"
-    },
-    services: {
-      label: "事業内容",
-      title: "4つの柱、ひとつのミッション。",
-      subtitle: "すべての案件は、認知アーキテクチャに根ざしています ―― 流行のサイクルにではなく。",
-      boost: { sub: "Boost", title: "AI戦略コンサルティング", desc: "FLCA診断フレームワークを用いたエンタープライズAI成熟度評価。アーキテクチャレビュー、ベンダー評価、AIに実際にできること・できないことを踏まえた導入ロードマップ。" },
-      build: { sub: "Build", title: "AIエージェント開発", desc: "ハルシネーション・ヘッジングを組み込んだカスタムエージェント、プラグイン、SaaSツール。Claude Skillsから本格的なエンタープライズ・ワークフロー自動化まで ―― 信頼性のために設計します。" },
-      grow: { sub: "Grow", title: "インキュベーション&アクセラレーション", desc: "AIネイティブ・スタートアップ向けの技術アーキテクチャ監査、MVP構築支援、創業者コーチング。認知アーキテクチャの欠落というレンズで、プロダクトを評価します。" },
-      back: { sub: "Back", title: "AIベンチャー投資", desc: "テーゼ・ドリブンのシード投資。AIネイティブ企業を対象に、本物の認知アーキテクチャ価値があるところに投資します ―― ハイプの音量にではなく。" }
-    },
-    flca: {
-      label: "理論的基盤",
-      title: "四層認知アーキテクチャ(FLCA)",
-      subtitle: "FLCAは私たち独自の診断フレームワークです。AIが幻覚を起こす理由 ―― そしてそれに対し実際に何ができるのか ―― を説明します。",
-      layer1: { num: "第1層", name: "ワールドモデル", desc: "物理的・環境的現実への接地" },
-      layer2: { num: "第2層", name: "推論", desc: "抽象的・因果的推論の能力" },
-      layer3: { num: "第3層", name: "メタ認知", desc: "自己モニタリングと確信度の校正" },
-      layer4: { num: "第4層", name: "動機", desc: "正確性とアラインメントへの内的な駆動" },
-      insight: '<strong>コア・インサイト:Care Gap(ケア・ギャップ)。</strong>現在のLLMは第2層の表層を持っていますが、第1・3・4層を欠いています。これらの層には<strong>生成的依存関係</strong>があり ―― 階層を飛ばすことはできません。幻覚は修正可能なバグではなく、アーキテクチャ不在の症状です。この診断が、AIシステムの設計・導入・ヘッジングの仕方を変えます。',
-      link: "GitHubでフレームワーク全文を読む →"
-    },
-    lab: {
-      label: "オープンソース",
-      title: "理論 → エンジニアリング → 実践",
-      subtitle: "私たちはフレームワークを公開します。精査されることで、より強くなる。",
-      flca_card: { title: "EskilXu/FLCA", tag: "研究", desc: "四層認知アーキテクチャの論文、形式的定義、裏付けとなる証拠。AIと人間の認知システムにおける幻覚を理解するための統一的な診断フレームワーク。", link: "リポジトリを見る →" },
-      expound_card: { title: "EskilXu/Expound", tag: "エンジニアリング", desc: "ハルシネーション・ヘッジングの工学フレームワーク、ゲートベースのQAプロセス、Skill/Agentの設計パターン、信頼できるAIシステムを構築する実用的なツール。", link: "リポジトリを見る →" }
-    },
-    thesis: {
-      label: "AIテーゼシリーズ",
-      title: "AI時代の起業と投資",
-      subtitle: "AIが本物の価値を生むのはどこか ―― そしてどこではないか ―― についての私たちの考え。",
-      t1: { tag: "マクロ・テーゼ", title: "Care Gap:なぜ大半のAIプロダクトは信頼性で失敗するのか", desc: "FLCA理論から市場の現実へ ―― AIの能力と信頼性の間のギャップは、この10年を定義する機会である。" },
-      t2: { tag: "ビルダー・テーゼ", title: "幻覚はバグではない:アーキテクチャの誠実さでAIプロダクトを設計する", desc: "FLCAフレームワークはプロダクト設計の意思決定をどう変えるか ―― 「幻覚を排除する」から「体系的にヘッジする」へ。" },
-      t3: { tag: "近日公開", title: "なぜ今:AIエージェント・インフラの瞬間", desc: "モデル能力、ツールエコシステム、エンタープライズの準備度の収斂が、2026年をAIエージェントの転換点にする。" }
-    },
-    contact: {
-      label: "はじめる",
-      title: "あなたのAIの現実について話しましょう。",
-      subtitle: "企業でAIを導入する、AIスタートアップを立ち上げる、投資を評価する ―― いずれの場合も、私たちがお手伝いできます。",
-      cta: "コンサルティングを予約する",
-      item1: { h4: "エンタープライズ・コンサルティング", p: "AI成熟度と導入" },
-      item2: { h4: "インキュベーション", p: "AIスタートアップ支援への応募" },
-      item3: { h4: "投資", p: "ピッチデックを送る" },
-      item4: { h4: "GitHub" }
-    },
-    footer: '© 2026 Expound Limited · 香港 · <a href="https://github.com/EskilXu/FLCA">FLCA</a> · <a href="https://github.com/EskilXu/Expound">Lab</a>'
-  }
-};
-
-const LANG_HTML_LANG = { en: "en", zh: "zh-Hans", ja: "ja" };
-
-function lookup(lang, key) {
-  return key.split('.').reduce((o, k) => (o && o[k] !== undefined) ? o[k] : undefined, I18N[lang]);
-}
-
-function applyLang(lang) {
-  if (!I18N[lang]) lang = "en";
-  document.documentElement.lang = LANG_HTML_LANG[lang] || lang;
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const v = lookup(lang, el.dataset.i18n);
-    if (v !== undefined) el.textContent = v;
-  });
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const v = lookup(lang, el.dataset.i18nHtml);
-    if (v !== undefined) el.innerHTML = v;
-  });
-  document.querySelectorAll('[data-i18n-attr]').forEach(el => {
-    el.dataset.i18nAttr.split(',').forEach(pair => {
-      const [attr, key] = pair.split(':').map(s => s.trim());
-      const v = lookup(lang, key);
-      if (v !== undefined) el.setAttribute(attr, v);
-    });
-  });
-
-  document.querySelectorAll('.nav-lang button').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-
-  try { localStorage.setItem('expound-lang', lang); } catch (e) {}
-}
-
-(function init() {
-  let lang = null;
-  try { lang = localStorage.getItem('expound-lang'); } catch (e) {}
-  if (!I18N[lang]) {
-    const b = (navigator.language || 'en').toLowerCase();
-    if (b.startsWith('zh')) lang = 'zh';
-    else if (b.startsWith('ja')) lang = 'ja';
-    else lang = 'en';
-  }
-  document.querySelectorAll('.nav-lang button').forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
-  });
-  applyLang(lang);
-})();
-</script>
 
 </body>
 </html>
