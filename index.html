@@ -257,6 +257,54 @@ section { padding: 6rem 2rem; }
 }
 .repo-card a:hover { text-decoration: underline; }
 
+/* ===== FOUNDER ===== */
+.founder { background: var(--navy-deep); color: var(--white); }
+.founder .section-label { color: var(--accent-light); }
+.founder .section-title { color: var(--white); max-width: 760px; }
+.founder-lede {
+  font-size: 1.05rem; color: rgba(255,255,255,0.7);
+  max-width: 720px; line-height: 1.7; margin-bottom: 1.5rem;
+}
+.founder-quote {
+  font-size: 1.15rem; color: var(--accent-light); font-style: italic;
+  max-width: 720px; margin: 0 0 3rem; padding-left: 1.25rem;
+  border-left: 3px solid var(--accent); line-height: 1.6;
+}
+.founder-timeline { display: grid; gap: 0; margin-bottom: 2.5rem; }
+.founder-role {
+  display: grid; grid-template-columns: 140px 1fr; gap: 1.5rem;
+  align-items: baseline; padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.founder-role:last-child { border-bottom: none; }
+.founder-role-year {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--accent-light); text-transform: uppercase;
+}
+.founder-role-body {
+  font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.65;
+}
+.founder-role-body strong { color: var(--white); font-weight: 600; }
+.founder-meta {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem; padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.founder-location {
+  font-size: 0.8rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.founder-links { display: flex; gap: 1.5rem; }
+.founder-links a {
+  color: var(--accent-light); text-decoration: none;
+  font-size: 0.88rem; font-weight: 600; transition: color 0.2s;
+}
+.founder-links a:hover { color: var(--white); }
+@media (max-width: 640px) {
+  .founder-role { grid-template-columns: 1fr; gap: 0.25rem; padding: 1rem 0; }
+  .founder-meta { flex-direction: column; align-items: flex-start; }
+}
+
 /* ===== THESIS ===== */
 .thesis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 .thesis-card {
@@ -323,6 +371,7 @@ footer a:hover { color: var(--white); }
       <li><a href="#services">Services</a></li>
       <li><a href="#flca">FLCA</a></li>
       <li><a href="#lab">Lab</a></li>
+      <li><a href="#founder">Founder</a></li>
       <li><a href="#thesis">Thesis</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -463,6 +512,46 @@ footer a:hover { color: var(--white); }
         <h3>EskilXu/Expound <span class="repo-tag">Practice</span></h3>
         <p>Verification-first workflows for serious knowledge work with Claude, documented failure modes from real use, and the audience personas these workflows target. The applied counterpart to FLCA.</p>
         <a href="https://github.com/EskilXu/Expound" target="_blank">View Repository &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder" class="founder">
+  <div class="container">
+    <div class="section-label">About the Founder</div>
+    <div class="section-title">Eskil Xu — Defensive infrastructure operator turned agentic AI builder.</div>
+
+    <p class="founder-lede">15 years of zero-to-scale across physical, edge-cloud, and cryptographic substrates. Now full-time inside Claude Code and the FLCA framework, working on a single question:</p>
+
+    <blockquote class="founder-quote">"What does defensive infrastructure look like when the things being defended — and the things doing the attacking — are agents?"</blockquote>
+
+    <div class="founder-timeline">
+      <div class="founder-role">
+        <div class="founder-role-year">2020–2026</div>
+        <div class="founder-role-body"><strong>Co-founder &amp; Steward, GoPlus Security</strong> — Web3 user safety data infrastructure. Scaled to ~30M daily API calls across 40+ chains. Featured AWS customer case study. Stepped down February 2026.</div>
+      </div>
+      <div class="founder-role">
+        <div class="founder-role-year">2015–2020</div>
+        <div class="founder-role-body"><strong>Co-founder &amp; COO, EdgeOn IoT</strong> — China's leading 5G edge-cloud platform. Clients included Wanda, Vanke, K11, Swire's Taikoo Li, China World Trade Center, ByteDance.</div>
+      </div>
+      <div class="founder-role">
+        <div class="founder-role-year">2011–2014</div>
+        <div class="founder-role-body"><strong>Deputy Director, TEDA Eco Center, Tianjin</strong> — Led the China side of the US–China Eco-Partnership under the S&amp;ED framework.</div>
+      </div>
+      <div class="founder-role">
+        <div class="founder-role-year">2010–2011</div>
+        <div class="founder-role-body"><strong>Project Officer, Embassy of Sweden</strong> — China Environmental Technology Centre.</div>
+      </div>
+    </div>
+
+    <div class="founder-meta">
+      <div class="founder-location">Tokyo &middot; Hong Kong &middot; San Francisco</div>
+      <div class="founder-links">
+        <a href="https://github.com/EskilXu" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/yufeng-xu-9856a716/" target="_blank">LinkedIn</a>
+        <a href="https://x.com/infinitegardenX" target="_blank">X / @infinitegardenX</a>
       </div>
     </div>
   </div>
